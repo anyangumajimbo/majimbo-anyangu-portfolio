@@ -30,55 +30,18 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css"
     />
-    <!-- Language Switcher -->
-    <style>
-      .language-switcher {
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        z-index: 999;
-        display: flex;
-        gap: 8px;
-        background: rgba(255, 255, 255, 0.9);
-        padding: 8px;
-        border-radius: 8px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      }
-      .lang-btn {
-        padding: 6px 12px;
-        border: 2px solid transparent;
-        background: transparent;
-        color: #183036;
-        cursor: pointer;
-        border-radius: 4px;
-        font-weight: 600;
-        font-size: 14px;
-      }
-      .lang-btn.active {
-        background: #2d6a4f;
-        color: white;
-      }
-    </style>
   </head>
 
   <body style="background-color: #061e24">
     <!-- Language Switcher -->
     <div class="language-switcher">
-      <button
-        class="lang-btn active"
-        data-lang="en"
-        onclick="changeLanguage('en')"
-        title="English"
-      >
-        EN
+      <button class="lang-btn active" data-lang="en" onclick="changeLanguage('en')" title="English">
+        <img src="https://flagcdn.com/w40/gb.png" alt="English flag">
+        <span>EN</span>
       </button>
-      <button
-        class="lang-btn"
-        data-lang="fr"
-        onclick="changeLanguage('fr')"
-        title="Français"
-      >
-        FR
+      <button class="lang-btn" data-lang="fr" onclick="changeLanguage('fr')" title="Français">
+        <img src="https://flagcdn.com/w40/fr.png" alt="French flag">
+        <span>FR</span>
       </button>
     </div>
     <div class="min-vh-100 d-flex align-items-center py-5">
