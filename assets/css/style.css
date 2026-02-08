@@ -600,3 +600,64 @@ body.dark-theme .small,
 body.dark-theme .text-muted {
     color: #a5bdc2 !important;
 }
+
+/* Language Switcher Styles */
+.language-switcher {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    z-index: 999;
+    display: flex;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 8px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.language-switcher:hover {
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.lang-btn {
+    padding: 6px 12px;
+    border: 2px solid transparent;
+    background: transparent;
+    color: #183036;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+.lang-btn:hover {
+    background: rgba(45, 106, 79, 0.1);
+    color: #2d6a4f;
+}
+
+.lang-btn.active {
+    background: #2d6a4f;
+    color: white;
+    border-color: #2d6a4f;
+}
+
+body.dark-theme .language-switcher {
+    background: rgba(10, 20, 27, 0.95);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-theme .lang-btn {
+    color: #d7e6ea;
+}
+
+body.dark-theme .lang-btn:hover {
+    background: rgba(64, 145, 108, 0.2);
+    color: #40916c;
+}
+
+body.dark-theme .lang-btn.active {
+    background: #2d6a4f;
+    color: white;
+}
