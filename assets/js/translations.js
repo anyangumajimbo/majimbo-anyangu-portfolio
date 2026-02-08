@@ -312,7 +312,7 @@ const translations = {
     "education-webdev-level": "Niveau cible : Bac +5 (entrée à partir de Bac +3)",
     "education-webdev-focus": "Domaine :",
     "education-webdev-focus-value": "Développement web full-stack, React.js, REST APIs, responsive design, optimisation SEO",
-    "education-webdev-availability": "Disponible pour l'alternance",
+    "education-webdev-availability": "Disponible pour l'alternance,",
     "education-webdev-flexibility": "Flexible et adaptable en fonction des exigences de l'entreprise et de l'institution de formation.",
     
     "education-mern": "Développement logiciel (MERN Stack)",
