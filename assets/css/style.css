@@ -553,9 +553,24 @@ ul {
 @media (max-width: 575.98px) {
     .theme-icon {
         top: 16px;
-        right: 16px;
+        left: 16px;
+        right: auto;
         width: 42px;
         height: 42px;
+    }
+
+    .navbar-wrapper .container {
+        justify-content: center !important;
+        position: relative;
+    }
+
+    .navbar-wrapper > .container > .d-flex:first-child {
+        display: none !important;
+    }
+
+    .hamburger {
+        position: relative;
+        transform: none;
     }
 
     .hero {
@@ -564,6 +579,7 @@ ul {
 
     .nav-links {
         width: calc(100vw - 3rem);
+        right: 1.5rem;
     }
 }
 
@@ -678,4 +694,24 @@ body.dark-theme .lang-btn.active {
     background: rgba(45, 106, 79, 0.3);
     border-color: #40916c;
     color: #40916c;
+}
+
+@media (max-width: 575.98px) {
+    .language-switcher {
+        top: 16px;
+        right: 50%;
+        transform: translateX(50%);
+        gap: 6px;
+        padding: 6px;
+    }
+
+    .lang-btn {
+        padding: 8px 10px;
+        font-size: 13px;
+    }
+
+    .lang-btn img {
+        width: 18px;
+        height: 13px;
+    }
 }
