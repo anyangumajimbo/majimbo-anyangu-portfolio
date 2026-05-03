@@ -26,23 +26,23 @@
   </head>
 
   <body>
-    <!-- Theme Toggle -->
-    <input type="checkbox" id="theme-toggle" hidden />
-    <label for="theme-toggle" class="theme-icon" aria-label="Toggle theme">
-      <span class="sun">☀️</span>
-      <span class="moon">🌙</span>
-    </label>
-
     <!-- Language Switcher -->
-    <div class="language-switcher">
-      <button class="lang-btn active" data-lang="en" onclick="changeLanguage('en')" title="English">
-        <img src="https://flagcdn.com/w40/gb.png" alt="English flag">
-        <span>EN</span>
+    <div class="language-switcher" id="language-switcher">
+      <button class="lang-toggle-btn" id="lang-toggle-btn">
+        <img src="https://flagcdn.com/w40/gb.png" alt="" id="lang-current-flag">
+        <span id="lang-current-label">EN</span>
+        <i class="bi bi-chevron-down lang-chevron"></i>
       </button>
-      <button class="lang-btn" data-lang="fr" onclick="changeLanguage('fr')" title="Français">
-        <img src="https://flagcdn.com/w40/fr.png" alt="French flag">
-        <span>FR</span>
-      </button>
+      <div class="lang-dropdown" id="lang-dropdown">
+        <button class="lang-option" data-lang="en">
+          <img src="https://flagcdn.com/w40/gb.png" alt="English">
+          <span>EN - English</span>
+        </button>
+        <button class="lang-option" data-lang="fr">
+          <img src="https://flagcdn.com/w40/fr.png" alt="Français">
+          <span>FR - Français</span>
+        </button>
+      </div>
     </div>
 
     <!-- Navbar Toggle -->
@@ -51,14 +51,18 @@
     <!-- Navbar -->
     <nav class="navbar-wrapper">
       <div class="container d-flex justify-content-between align-items-center">
-        <div class="d-flex align-items-center gap-2">
-          <a href="#" class="navbar-brand">Majimbo Anyangu</a>
-        </div>
+        <a href="#" class="navbar-brand">Majimbo Anyangu</a>
 
-        <!-- Hamburger Icon -->
-        <label for="nav-toggle" class="hamburger">
-          <i class="fas fa-bars"></i>
-        </label>
+        <div class="d-flex align-items-center gap-2">
+          <input type="checkbox" id="theme-toggle" hidden />
+          <label for="theme-toggle" class="theme-icon" aria-label="Toggle theme">
+            <span class="sun">☀️</span>
+            <span class="moon">🌙</span>
+          </label>
+          <label for="nav-toggle" class="hamburger">
+            <i class="fas fa-bars"></i>
+          </label>
+        </div>
 
         <!-- Nav Links -->
         <div class="nav-links">
@@ -96,7 +100,7 @@
             <li>
               <a
                 href="assets/contact_me.html"
-                class="btn btn-success"
+                class="btn btn-primary"
                 data-i18n="nav-contact"
                 >Contact Me</a
               >
@@ -195,7 +199,7 @@
             >
               <i class="bi bi-geo-alt-fill text-white fs-1 mb-3 d-block"></i>
               <h4 class="text-white" data-i18n="hero-location">
-                Based in Tarbes, France
+                Based in France
               </h4>
               <p class="text-white mb-0" data-i18n="hero-location-desc">
                 Available for alternance across France
@@ -253,7 +257,7 @@
               <div class="col-md-6">
                 <p>
                   <strong data-i18n="about-location">Location:</strong>
-                  <span data-i18n="about-location-value">Tarbes, France</span>
+                  <span data-i18n="about-location-value">France</span>
                 </p>
                 <p>
                   <strong data-i18n="about-languages">Languages:</strong>
@@ -364,7 +368,7 @@
           <div class="col-lg-6">
             <div class="education-card p-4 bg-white rounded-3 shadow-sm h-100">
               <div class="d-flex align-items-start mb-3">
-                <i class="bi bi-code-square text-success fs-2 me-3"></i>
+                <i class="bi bi-code-square text-primary fs-2 me-3"></i>
                 <div>
                   <h5 class="mb-1" data-i18n="education-mern">
                     Software Development (MERN Stack)
@@ -561,7 +565,7 @@
           <div class="col-lg-6">
             <div class="skills-card p-4 bg-white rounded-3 shadow-sm">
               <h5 class="mb-4" data-i18n="skills-backend">
-                <i class="bi bi-server text-success me-2"></i>Backend
+                <i class="bi bi-server text-primary me-2"></i>Backend
                 Development
               </h5>
 
@@ -573,7 +577,7 @@
                   >
                 </div>
                 <div class="progress">
-                  <div class="progress-bar bg-success progress-75"></div>
+                  <div class="progress-bar bg-primary progress-75"></div>
                 </div>
               </div>
 
@@ -585,7 +589,7 @@
                   >
                 </div>
                 <div class="progress">
-                  <div class="progress-bar bg-success progress-70"></div>
+                  <div class="progress-bar bg-primary progress-70"></div>
                 </div>
               </div>
 
@@ -597,7 +601,7 @@
                   >
                 </div>
                 <div class="progress">
-                  <div class="progress-bar bg-success progress-72"></div>
+                  <div class="progress-bar bg-primary progress-72"></div>
                 </div>
               </div>
 
@@ -609,7 +613,7 @@
                   >
                 </div>
                 <div class="progress">
-                  <div class="progress-bar bg-success progress-78"></div>
+                  <div class="progress-bar bg-primary progress-78"></div>
                 </div>
               </div>
 
@@ -621,7 +625,7 @@
                   >
                 </div>
                 <div class="progress">
-                  <div class="progress-bar bg-success progress-73"></div>
+                  <div class="progress-bar bg-primary progress-73"></div>
                 </div>
               </div>
             </div>
@@ -722,7 +726,7 @@
                 </div>
                 <div class="col-md-3 col-6 mb-3">
                   <div class="text-center">
-                    <i class="bi bi-graph-up fs-2 text-success mb-2"></i>
+                    <i class="bi bi-graph-up fs-2 text-primary mb-2"></i>
                     <p class="mb-0 fw-semibold" data-i18n="soft-analytical">
                       Analytical Thinking
                     </p>
@@ -766,7 +770,7 @@
           <div class="col-lg-6">
             <div class="project-card p-4 bg-white rounded-3 shadow-sm h-100">
               <div class="project-badge mb-3">
-                <span class="badge bg-success" data-i18n="projects-featured"
+                <span class="badge bg-primary" data-i18n="projects-featured"
                   >⭐ Featured Project</span
                 >
                 <span
@@ -1070,11 +1074,9 @@
           <h2 class="fw-bold" data-i18n="experience-title">Work Experience</h2>
         </div>
 
-        <div class="row g-4">
-          <!-- Current Role -->
           <div class="col-12">
             <div
-              class="experience-card p-4 bg-white rounded-3 shadow-sm border-start border-5 border-success"
+              class="experience-card p-4 bg-white rounded-3 shadow-sm border-start border-5 border-primary"
             >
               <div
                 class="d-flex justify-content-between align-items-start mb-2"
@@ -1090,9 +1092,7 @@
                     Lycée Théophile Gautier, Tarbes
                   </p>
                 </div>
-                <span class="badge bg-success" data-i18n="experience-current"
-                  >Current</span
-                >
+                
               </div>
               <p class="small text-muted mb-2">
                 <i class="bi bi-calendar3"></i>
@@ -1265,13 +1265,13 @@
               <i class="bi bi-flag-fill text-danger fs-1 mb-3"></i>
               <h5 data-i18n="lang-french">French</h5>
               <p class="text-muted" data-i18n="lang-french-level">
-                Bilingual (C1-C2)
+                B2
               </p>
             </div>
           </div>
           <div class="col-md-4 mb-4">
             <div class="language-card p-4 bg-white rounded-3 shadow-sm">
-              <i class="bi bi-flag-fill text-success fs-1 mb-3"></i>
+              <i class="bi bi-flag-fill text-primary fs-1 mb-3"></i>
               <h5 data-i18n="lang-kiswahili">Kiswahili</h5>
               <p class="text-muted" data-i18n="lang-kiswahili-level">
                 Bilingual
@@ -1323,7 +1323,7 @@
             <i class="fas fa-envelope me-2"></i> majimboanyangu50@gmail.com
           </p>
           <p class="mb-0">
-            <i class="fas fa-map-marker-alt me-2"></i> Tarbes, France
+            <i class="fas fa-map-marker-alt me-2"></i> France
           </p>
         </div>
 

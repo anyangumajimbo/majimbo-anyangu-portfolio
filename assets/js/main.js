@@ -62,35 +62,59 @@ if (navbarWrapper) {
 
 // Language Switcher
 (function() {
+    const langData = {
+        en: { flag: 'https://flagcdn.com/w40/gb.png', label: 'EN' },
+        fr: { flag: 'https://flagcdn.com/w40/fr.png', label: 'FR' }
+    };
+
     let currentLanguage = localStorage.getItem('language-preference') || 'en';
-    
-    // Initialize language on page load
+
     if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initializeLanguage);
+        document.addEventListener('DOMContentLoaded', init);
     } else {
-        initializeLanguage();
+        init();
     }
-    
-    function initializeLanguage() {
+
+    function init() {
         setLanguage(currentLanguage);
-        updateLanguageSwitcher();
+
+        const toggleBtn = document.getElementById('lang-toggle-btn');
+        const switcher = document.getElementById('language-switcher');
+
+        if (toggleBtn) {
+            toggleBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                switcher.classList.toggle('open');
+            });
+        }
+
+        document.querySelectorAll('.lang-option').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                setLanguage(btn.getAttribute('data-lang'));
+                switcher.classList.remove('open');
+            });
+        });
+
+        document.addEventListener('click', function(e) {
+            if (switcher && !switcher.contains(e.target)) {
+                switcher.classList.remove('open');
+            }
+        });
     }
-    
+
     function setLanguage(lang) {
         currentLanguage = lang;
         localStorage.setItem('language-preference', lang);
         updateAllTranslations(lang);
-        updateLanguageSwitcher();
+        updateSwitcherUI();
         document.documentElement.lang = lang;
     }
-    
+
     function updateAllTranslations(lang) {
-        const elements = document.querySelectorAll('[data-i18n]');
-        elements.forEach(element => {
+        document.querySelectorAll('[data-i18n]').forEach(function(element) {
             const key = element.getAttribute('data-i18n');
             if (translations && translations[lang] && translations[lang][key]) {
                 const text = translations[lang][key];
-                // Check if element contains HTML
                 if (element.getAttribute('data-html') === 'true') {
                     element.innerHTML = text;
                 } else {
@@ -99,22 +123,18 @@ if (navbarWrapper) {
             }
         });
     }
-    
-    function updateLanguageSwitcher() {
-        const langButtons = document.querySelectorAll('.lang-btn');
-        langButtons.forEach(btn => {
-            btn.classList.remove('active');
-            if (btn.getAttribute('data-lang') === currentLanguage) {
-                btn.classList.add('active');
-            }
+
+    function updateSwitcherUI() {
+        const flagEl = document.getElementById('lang-current-flag');
+        const labelEl = document.getElementById('lang-current-label');
+        if (flagEl) flagEl.src = langData[currentLanguage].flag;
+        if (labelEl) labelEl.textContent = langData[currentLanguage].label;
+
+        document.querySelectorAll('.lang-option').forEach(function(btn) {
+            btn.classList.toggle('active', btn.getAttribute('data-lang') === currentLanguage);
         });
     }
-    
-    // Attach to window for global access
-    window.changeLanguage = function(lang) {
-        setLanguage(lang);
-    };
-    
+
     window.getCurrentLanguage = function() {
         return currentLanguage;
     };
